@@ -1,0 +1,341 @@
+body {
+  margin: 0;
+  background: transparent;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
+
+.ipod {
+  width: 240px;
+  height: 320px;
+  background: linear-gradient(150deg,
+      #c8fff0 0%,
+      #8be3c5 20%,
+      #66d4b2 40%,
+      #9df0d3 60%,
+      #5fc7a7 80%,
+      #baf7e4 100%);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 14px;
+  box-sizing: border-box;
+  -webkit-app-region: drag;
+  position: relative;
+  overflow: hidden;
+}
+
+.screen {
+  width: 195px;
+  height: 145px;
+  background: white;
+  border-width: 4px 12px;
+  border-style: solid;
+  border-color: #232323;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.screen-topbar {
+  height: 14px;
+  background: linear-gradient(180deg, #f2f2f2, #cfcfcf);
+  border-bottom: 1px solid #9e9e9e;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 0 5px;
+  font-size: 10px;
+  font-weight: 700;
+  color: #333;
+}
+
+.top-icons {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.play-triangle {
+  width: 9px;
+  height: 10px;
+
+  background:
+    linear-gradient(180deg,
+      #2f8fd8 0%,
+      #78d8ff 48%,
+      #4bb4f0 60%,
+      #2f8fd8 100%);
+
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+/* 배터리 외곽 */
+.battery {
+  position: relative;
+
+  width: 16px;
+  height: 8px;
+
+  border: 1px solid #9e9e9e;
+  border-radius: 2px;
+
+  background: #e8e7e7;
+  box-sizing: border-box;
+}
+
+/* 배터리 머리(?) */
+.battery::after {
+  content: "";
+
+  position: absolute;
+  right: -2px;
+  top: 2px;
+
+  width: 2px;
+  height: 3px;
+
+  background: #9e9e9e;
+  border-radius: 0 1px 1px 0;
+}
+
+/* 안 채워진 양 */
+.battery-fill {
+  width: 75%;
+  height: 100%;
+
+  background:
+    linear-gradient(180deg,
+      #cfffab 0%,
+      #95e06a 28%,
+      #74c84d 55%,
+      #4f9832 100%);
+
+  border-radius: 1px;
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.18);
+}
+
+.screen-content {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.timer-ui {
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #d7d7d7;
+  border: 1px solid #b5b5b5;
+  overflow: hidden;
+}
+
+#progress-fill {
+  width: 0%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    #8fd8ff 0%,
+    #37a9f0 60%,
+    #1f80d0 100%
+  );
+}
+
+#progress-fill.break-mode {
+  background: linear-gradient(
+    180deg,
+    #ffd0e0 0%,
+    #ff8fbd 60%,
+    #e85b9d 100%
+  );
+}
+
+#elapsed-time,
+#remaining-time {
+  font-size: 9px;
+  font-weight: 700;
+  color: #4b4b4b;
+  min-width: 16px;
+}
+
+#elapsed-time {
+  text-align: left;
+}
+
+#remaining-time {
+  text-align: right;
+}
+
+#character {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  flex-shrink: 0;
+}
+
+.info-section {
+  position: absolute;
+
+  top: 25px;
+  left: 110px;
+  right: 8px;
+
+  display: flex;
+  flex-direction: column;
+
+  color: #2d2d2d;
+}
+
+/* 메인 제목 */
+.track-title {
+  font-size: 12px;
+  font-weight: 700;
+
+  color: black;
+
+  margin-bottom: 2px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 서브 텍스트 */
+.track-subtitle {
+  font-size: 8px;
+  font-weight: 600;
+
+  color: #2f2f2f;
+
+  margin-bottom: 1px;
+
+  white-space: nowrap;
+}
+
+/* 맨 아래 설명 */
+.track-album {
+  font-size: 8px;
+  font-weight: 600;
+
+  color: #2f2f2f;
+
+  white-space: nowrap;
+}
+
+#photo-count {
+  margin-top: 10px;
+  font-size: 8px;
+  font-weight: 700;
+  color: #727272;
+}
+
+.wheel {
+  position: relative;
+  margin-top: 18px;
+  width: 130px;
+  height: 130px;
+  background: #f5f5f5;
+  border-radius: 50%;
+}
+
+.center-circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(180deg,
+      #9ae5d0 0%,
+      #76d4bb 50%,
+      #63c8ad 100%);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.35),
+    inset 0 -1px 1px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+}
+
+.wheel-label {
+  position: absolute;
+  color: rgba(120, 135, 135, 0.65);
+  font-weight: 700;
+  line-height: 1;
+  z-index: 3;
+  user-select: none;
+  -webkit-app-region: no-drag;
+}
+
+.menu {
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.prev {
+  left: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.next {
+  right: 7px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+}
+
+.play {
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  gap: 2px;
+
+  color: rgba(120, 135, 135, 0.7);
+}
+
+.play-icon {
+  font-size: 12px;
+}
+
+.pause-icon {
+  font-size: 14px;
+}
