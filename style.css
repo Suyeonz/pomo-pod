@@ -3,6 +3,13 @@ body {
   background: transparent;
   overflow: hidden;
   font-family: Arial, sans-serif;
+
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 24px;
+  box-sizing: border-box;
 }
 
 .ipod {
