@@ -8,7 +8,7 @@
   "theme_color": "#b7eadc",
   "icons": [
     {
-      "src": "/pomo-pod/assets/0-img.jpg",
+      "src": "/pomo-pod/assets/icon.png",
       "sizes": "512x512",
       "type": "image/jpeg"
     }
