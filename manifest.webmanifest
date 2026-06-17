@@ -1,0 +1,16 @@
+{
+  "name": "Pomo Pod",
+  "short_name": "Pomo Pod",
+  "start_url": "/pomo-pod/",
+  "scope": "/pomo-pod/",
+  "display": "standalone",
+  "background_color": "#f4fff9",
+  "theme_color": "#b7eadc",
+  "icons": [
+    {
+      "src": "/pomo-pod/assets/0-img.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
